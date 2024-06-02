@@ -9,8 +9,6 @@ const Home = () => {
       <Link to="/register">Registrar</Link>
       <br />
       <Link to="/login">Login</Link>
-      <br />
-      <Link to="/game">Novo jogo</Link>
     </div>
   );
 };

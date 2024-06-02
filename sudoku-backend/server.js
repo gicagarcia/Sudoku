@@ -1,3 +1,5 @@
+const AuthService = require('./AuthService.js');
+
 const express = require('express');
 const cors = require('cors');
 const sudoku = require('sudoku');
@@ -10,7 +12,9 @@ app.use(express.json());
 app.use(cors());
 
 app.post('/registro', (req, res) => {
-    const { username, password } = req.body;
+    const username = req.body.username;
+    const password = req.body.password;
+    
     if (!username || !password) {
         return res.status(400).json({ error: 'Os campos "username" e "password" são obrigatórios.' });
     }

@@ -12,12 +12,13 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await axios.post('http://localhost:5000/registro', formData);
-      navigate('/game');
-    } catch (error) {
-      alert('Erro ao registrar usuário:', error.message);
-    }
+    const formDataJson = JSON.stringify(formData);
+    console.log(typeof(formDataJson))
+    await axios.post('http://localhost:5000/registro', formDataJson, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+    navigate('/game');
+    
   };
 
   return (
